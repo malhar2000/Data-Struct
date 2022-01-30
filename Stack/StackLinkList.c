@@ -1,6 +1,7 @@
 #include "Stack.h"
 
-void push(int x)
+struct Node *link_Top = NULL;
+void pushL(int x)
 {
     struct Node *t;
     t = (struct Node *)malloc(sizeof(struct Node));
@@ -9,31 +10,31 @@ void push(int x)
     else
     {
         t->data = x;
-        t->next = top;
-        top = t;
+        t->next = link_Top;
+        link_Top = t;
     }
 }
 
-int pop()
+int popL()
 {
     struct Node *t;
     int x = -1;
-    if (top == NULL)
+    if (link_Top == NULL)
         printf("Stack is Empty\n");
     else
     {
-        t = top;
-        top = top->next;
+        t = link_Top;
+        link_Top = link_Top->next;
         x = t->data;
         free(t);
     }
     return x;
 }
 
-void Display()
+void DisplayL()
 {
     struct Node *p;
-    p = top;
+    p = link_Top;
     while (p != NULL)
     {
         printf("%d ", p->data);

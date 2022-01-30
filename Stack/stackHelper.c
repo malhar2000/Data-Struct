@@ -10,7 +10,16 @@ int main(){
     push(&arr, 20);
     push(&arr, 30);
     push(&arr, 40);
-
+    
     printf("Peek at position 3: %d\n", peek(arr, 3));
     Display(arr);
+
+
+    pushL(50);
+    pushL(60);
+    pushL(70);
+    pushL(80);
+    pushL(90);
+    pushL(100);
+    DisplayL();
 }

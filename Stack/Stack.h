@@ -22,8 +22,9 @@ struct Node
 {
     int data;
     struct Node *next;
-}*top = NULL;
+};
+
 
 void pushL(int x);
-int pop();
-void Display();
+int popL();
+void DisplayL();
