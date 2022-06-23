@@ -1,5 +1,5 @@
 #include <iostream>
-
+//Someone else work credit: unknown 
 using namespace std;
  
 class DEQueue{
