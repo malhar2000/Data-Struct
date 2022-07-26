@@ -24,7 +24,6 @@ struct Node
     struct Node *next;
 };
 
-
 void pushL(int x);
 int popL();
 void DisplayL();
