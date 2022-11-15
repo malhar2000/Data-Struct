@@ -12,6 +12,7 @@ class Tree{
         void Levelorder(Node *p);
         int Height(Node *root);
         void Display(Node *p, int space);
+        vector<int> SumOfEachLevel(vector<int> &, Node *p);
 };
 
 void Tree::CreateTree(){
@@ -131,17 +132,64 @@ void Tree::Display(Node *root, int space){
     Display(root->left, space);
 }
 
+
+vector<int> Tree::SumOfEachLevel(vector<int> &eachLevelSum, Node *root){
+    queue<Node *> q;
+    q.push(root);
+     
+        
+
+    while(true){
+        int size = q.size();
+        if(size == 0){
+            break;
+        }
+
+         
+        int sum = 0;
+
+        while(size > 0){
+            Node* temp = q.front();
+            q.pop();
+            cout << "Temp data: " << temp->data << endl;
+            sum += temp->data;
+
+            if(temp->left != NULL){
+                q.push(temp->left);
+            }if(temp->right != NULL){
+                q.push(temp->right);
+            }
+            size--;
+        }
+        cout << sum << endl;
+
+        eachLevelSum.push_back(sum);
+    }
+
+    return eachLevelSum;
+
+}
+
 int main(){
     
     Tree t;
+    vector<int> q;
 
     t.CreateTree();
-    t.Preorder(t.root);
-    cout << endl;
-    t.Postorder(t.root);
-    cout << endl;
-    t.Inorder(t.root);
-    cout << endl;
-    cout<< t.Height(t.root) << endl;
-    t.Levelorder(t.root);
+    // t.Preorder(t.root);
+    // cout << endl;
+    // t.Postorder(t.root);
+    // cout << endl;
+    // t.Inorder(t.root);
+    // cout << endl;
+    // cout<< t.Height(t.root) << endl;
+    // t.Levelorder(t.root);
+
+    cout << "the sum is: " << endl;
+    t.SumOfEachLevel(q, t.root);
+
+    
+    // for(auto i : q){
+    //     cout << i << endl;
+    // }
 }

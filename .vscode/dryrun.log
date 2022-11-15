@@ -1,0 +1,6 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/malhar/Data and Algo'
+make: Leaving directory `/Users/malhar/Data and Algo'
+ 
+make: *** No targets specified and no makefile found.  Stop.
+
